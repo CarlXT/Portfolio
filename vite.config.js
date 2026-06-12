@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(), // 2. Inject it into the pipeline
   ],
-  base: '/portfolio/', // Keep your GitHub Pages sub-path base config
+  base: '/Portfolio/', // Keep your GitHub Pages sub-path base config
 })
