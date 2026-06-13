@@ -8,7 +8,7 @@ export default function App() {
     <Router>
       <Routes>
         {/* Absolute root URL maps straight to your portfolio home view */}
-        <Route path="/Portfolio" element={<HeroPage />} />
+        <Route path="/" element={<HeroPage />} />
       </Routes>
     </Router>
   );
