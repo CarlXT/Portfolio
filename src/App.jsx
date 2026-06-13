@@ -1,122 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState, useEffect } from 'react'; // Fixed: Added useState and useEffect here
+import { HeroSection } from "./components/hero/HeroSection";
+import { LatestWorkSection } from "./components/hero/LatestWorkSection";
+import { CollaborationCTASection } from "./components/hero/CollaborationCTASection";
+import { ContactFooterSection } from "./components/hero/ContactFooterSection";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Ordered structural sections mapping out your layout pipeline
+const sections = [
+  { id: "hero", Component: HeroSection },
+  { id: "latest-work", Component: LatestWorkSection },
+  { id: "collaboration-cta", Component: CollaborationCTASection },
+  { id: "contact-footer", Component: ContactFooterSection },
+];
+export function App() {
+  const [showTopbar, setShowTopbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Trigger threshold: Show the topbar if scrolled down more than 500 pixels
+      if (window.scrollY > 500) {
+        setShowTopbar(true);
+      } else {
+        setShowTopbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    // Clean up the window listener when the component unmounts
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="min-h-screen bg-[#191919] text-(--text) selection:bg-(--accent-bg) selection:text-(--accent) font-sans antialiased">
+      
+      {/* Global Navigation Header - Fades and slides in on scroll */}
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#191919]/80 border-b border-white/6 transition-all duration-300 ${
+          showTopbar 
+            ? "translate-y-0 opacity-100 pointer-events-auto" 
+            : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="max-w-281.5 mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[#3b0aed] font-bold text-lg">&lt;g&gt;</span>
+            <span className="font-medium text-white tracking-tight">Hi I'm Carl</span>
+          </div>
+          
+          <nav className="flex items-center gap-6 text-sm font-medium">
+            <a href="#hero" className="text-gray-400 hover:text-white transition-colors">Me</a>
+            <a href="#latest-work" className="text-gray-400 hover:text-white transition-colors">Stuff I Built</a>
+            <a href="#collaboration-cta" className="text-gray-400 hover:text-white transition-colors">Stack</a>
+            <a href="#contact-footer" className="px-3 py-1.5 rounded-md bg-white/4 text-white hover:bg-white/10 transition-colors border border-white/8">
+              Say Hi
+            </a>
+          </nav>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* Main Structural Flow */}
+      <main className="flex w-full flex-col items-center gap-11.75">
+        <div className="relative inline-flex w-full flex-col items-start flex-[0_0_auto]">
+          {sections.map(({ id, Component }) => (
+            <section key={id} id={id} className="w-full">
+              <Component />
+            </section>
+          ))}
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </main>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
