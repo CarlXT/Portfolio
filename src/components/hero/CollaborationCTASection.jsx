@@ -6,7 +6,7 @@ export const CollaborationCTASection = () => {
   return (
     <section
       /* 1. Changed fixed h-118.5 to py-24. This lets the section scale organically with your content padding */
-      className="flex flex-col w-full min-h-fit py-24 items-center gap-12 relative 
+      className="flex flex-col w-full min-h-fit py-24 items-center gap-12 relative       
       bg-[linear-gradient(90deg,rgba(59,10,237,1)_0%,rgba(48,20,152,1)_49%,rgba(45,24,122,1)_100%)]"
       aria-labelledby="collaboration-cta-title"
     >

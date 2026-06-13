@@ -1,9 +1,12 @@
 import PillButton from "../button/PillButton";
+import mis_home from "../../assets/mis_home.png";
+import mis_login from "../../assets/mis_login.png";
+import mis_me from "../../assets/mis_me.png";
 
 const workItems = [
-  { id: 1, label: "Project preview 1" },
-  { id: 2, label: "Project preview 2" },
-  { id: 3, label: "Project preview 3" },
+  { id: 1, image: mis_home },
+  { id: 2, image: mis_login },
+  { id: 3, image: mis_me },
 ];
 
 export const LatestWorkSection = () => {
@@ -28,8 +31,9 @@ export const LatestWorkSection = () => {
           the parents end.
         </p>
       </header>
+      {/* Grid container wrapper mapped for the mobile mockups */}
       <div
-        className="flex flex-wrap h-134.5 items-center justify-center gap-[33px_33px] relative self-stretch w-full"
+        className="flex flex-wrap items-center justify-center gap-8 relative self-stretch w-full px-6"
         role="list"
         aria-label="Latest work previews"
       >
@@ -37,9 +41,17 @@ export const LatestWorkSection = () => {
           <div
             key={item.id}
             role="listitem"
-            aria-label={item.label}
-            className="relative w-81.5 h-122 bg-white"
-          />
+            /* 3. Render container as a premium card structure */
+            className="relative w-81.5 h-171 bg-neutral-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl
+             group transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
+          >
+            {/* 4. THE FIX: Displaying your actual image asset inside an HTML tag */}
+            <img 
+              src={item.image} 
+              alt={item.label}
+              className="w-full h-full object-cover object-top select-none transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         ))}
       </div>
       <div className="flex flex-wrap items-center justify-center gap-16 relative z-10 px-6">

@@ -36,7 +36,7 @@ const cards = [
 export const HeroSection = () => {
   return (
     <section
-      className="flex flex-col w-full min-h-201 items-center gap-32.5 px-4 py-4.25 relative max-w-full"
+      className="flex flex-col w-full min-h-201 items-center gap-32.5 px-4 py-15 relative max-w-full"
       aria-labelledby="hero-heading"
     >
       <header className="flex flex-col h-81.75 items-center justify-center gap-8.5 px-23.5 py-0 relative self-stretch w-full">
