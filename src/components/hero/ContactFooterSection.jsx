@@ -52,7 +52,7 @@ export const ContactFooterSection = () => {
       <div className="grid h-fit w-full max-w-360 grid-cols-2 px-23.5 py-0 gap-y-12">
         
         {/* Left Column - Core Address Info */}
-        <section className="relative col-[1/2] row-[1/2]  flex h-fit w-[627px] flex-col items-start gap-[15px] px-0 py-[9px] [align-self:start]">
+        <section className="relative col-[1/2] row-[1/2]  flex h-fit w-156.5 flex-col items-start gap-3.75 px-0 py-2.25 [align-self:start]">
           <h2 className="relative -mt-px flex h-15.25 items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
           leading-[normal] tracking-normal text-white">
             Contact Info
@@ -61,7 +61,8 @@ export const ContactFooterSection = () => {
             {contactItems.map((item) => (
               <div
                 key={item.label}
-                className="relative flex items-center gap-3 w-[626px] font-['SF_Pro-Bold',Helvetica] text-lg font-normal leading-[normal] tracking-[0] text-white"
+                className="relative flex items-center gap-3 w-156.5 font-['SF_Pro-Bold',Helvetica] text-lg font-normal leading-[normal]
+                 tracking-normal text-white"
               >
                 <Icon icon={item.icon} className="text-xl opacity-80 shrink-0" />
                 <p>
@@ -69,7 +70,8 @@ export const ContactFooterSection = () => {
                   <span className="font-['SF_Pro-Regular',Helvetica] text-white/80">
                     {item.href ? (
                       <a
-                        className="outline-none hover:text-white hover:underline transition-colors focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-white"
+                        className="outline-none hover:text-white hover:underline transition-colors focus-visible:rounded-sm 
+                        focus-visible:ring-2 focus-visible:ring-white"
                         href={item.href}
                       >
                         {item.value}
@@ -88,9 +90,9 @@ export const ContactFooterSection = () => {
         
 
         {/* Left Column  - Real Connect Buttons */}
-        <section className="relative col-[2/3] row-[1/2]  flex h-fit w-[627px] flex-col items-start gap-[15px] px-0 py-[9px] [align-self:start]">
-          <h2 className="relative -mt-px flex h-[61px] items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
-          leading-[normal] tracking-[0] text-white">
+        <section className="relative col-[2/3] row-[1/2]  flex h-fit w-156.5 flex-col items-start gap-3.75 px-0 py-2.25 [align-self:start]">
+          <h2 className="relative -mt-px flex h-15.25 items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
+          leading-[normal] tracking-normal text-white">
             Connect with me
           </h2>
           
@@ -103,7 +105,7 @@ export const ContactFooterSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] backdrop-blur-md text-white/80 text-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:border-white/20 ${social.color}`}
+                  className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white/2 border border-white/6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] backdrop-blur-md text-white/80 text-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:border-white/20 ${social.color}`}
                 >
                   <Icon icon={social.icon} className="text-2xl" />
                   <span>{social.name}</span>
@@ -111,9 +113,9 @@ export const ContactFooterSection = () => {
               ))}
             </div>
 
-            <div className="relative flex h-[33px] w-[627px] items-center gap-2 text-white/60">
+            <div className="relative flex h-8.25 w-156.5 items-center gap-2 text-white/60">
               <Icon icon="solar:clock-circle-bold" className="text-md text-[#3b0aed]" />
-              <p className="font-['SF_Pro-Regular',Helvetica] text-md font-normal leading-[normal] tracking-[0]">
+              <p className="font-['SF_Pro-Regular',Helvetica] text-md font-normal leading-[normal] tracking-normal">
                 Usually responds within 24 hrs.
               </p>
             </div>
@@ -122,14 +124,14 @@ export const ContactFooterSection = () => {
       </div>
 
       {/* Lower Decorative Border Line & Meta Credits */}
-      <div className="grid h-fit w-full max-w-[1440px] grid-cols-2 border-t border-[#3b0aed]/40 px-[94px] py-6">
+      <div className="grid h-fit w-full max-w-360 grid-cols-2 border-t border-[#3b0aed]/40 px-23.5 py-6">
         <div className="relative col-[1/2] row-[1/2] flex items-center [align-self:start]">
-          <p className="font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-[0] text-white/40">
+          <p className="font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-normal text-white/40">
             © 2026 Carl Sagario. All rights reserved.
           </p>
         </div>
         <div className="relative col-[2/3] row-[1/2] flex items-center justify-end [align-self:start]">
-          <p className="text-right font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-[0] text-white/40 flex items-center gap-1.5">
+          <p className="text-right font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-normal text-white/40 flex items-center gap-1.5">
             <Icon icon="logos:react" className="text-sm" /> Made with React &amp; Tailwind v4
           </p>
         </div>
