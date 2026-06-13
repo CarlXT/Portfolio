@@ -21,6 +21,6 @@ export default defineConfig({
       overlay: false,
     }
   },
-  
+  base: '/', // Keep your GitHub Pages sub-path base config
   
 })
