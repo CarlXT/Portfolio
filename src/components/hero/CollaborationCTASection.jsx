@@ -1,37 +1,41 @@
+import PillButton from "../button/PillButton";
+
 export const CollaborationCTASection = () => {
-  const ctaButtons = [{ label: "Let&apos;s collaborate", href: "#contact" }];
+  const ctaButtons = [{ label: "Let's collaborate", href: "#contact" }];
 
   return (
-    
     <section
-      className="flex flex-col w-full h-118.5 items-center gap-15 relative 
+      /* 1. Changed fixed h-118.5 to py-24. This lets the section scale organically with your content padding */
+      className="flex flex-col w-full min-h-fit py-24 items-center gap-12 relative 
       bg-[linear-gradient(90deg,rgba(59,10,237,1)_0%,rgba(48,20,152,1)_49%,rgba(45,24,122,1)_100%)]"
       aria-labelledby="collaboration-cta-title"
     >
-      <div className="flex flex-col h-[286px] items-center justify-center px-[94px] py-0 relative self-stretch w-full">
+      {/* 2. Switched from a fixed 286px height to max-w-5xl to ensure the inner container is responsive */}
+      <div className="flex flex-col items-center justify-center max-w-5xl px-6 text-center relative w-full gap-6">
         <h2
           id="collaboration-cta-title"
-          className="relative flex items-center justify-center w-[976px] h-[136px] font-['SF_Compact-Bold',Helvetica] font-bold text-white text-[89px] text-center tracking-[0] leading-[normal]"
+          /* 3. Removed rigid h-[136px] and w-[976px]. Let text track flows naturally */
+          className="font-['SF_Compact-Bold',Helvetica] font-bold text-white text-6xl md:text-[89px] tracking-tight leading-tight"
         >
           Want to work with me?
         </h2>
-        <p className="relative w-[952px] h-[95px] font-['SF_Pro-Regular',Helvetica] font-normal text-white text-[40px] text-center tracking-[0] leading-[normal]">
-          Currently open to new opportunities. Let&apos;s collaborate and ship
-          some great software.
+        <p 
+          /* 4. Removed rigid h-[95px] and w-[952px]. Added text-white/80 for a smoother visual contrast */
+          className="font-['SF_Pro-Regular',Helvetica] font-normal text-white/80 text-xl md:text-[32px] max-w-3xl leading-relaxed"
+        >
+          Currently open to new opportunities. Let's collaborate and ship some great software.
         </p>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-[52px_52px] relative self-stretch w-full flex-[0_0_auto]">
-        {ctaButtons.map((button) => (
-          <a
-            key={button.label}
-            href={button.href}
-            aria-label="Let's collaborate"
-            className="flex w-[289px] h-[84px] items-center justify-center gap-[3px] px-2.5 py-1 relative bg-[#00000001] rounded-[1000px] backdrop-blur-[2.0px]  backdrop-saturate-100 [-webkit-backdrop-filter:blur(2.0px)_brightness(100.0%)_saturate(100.0%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.40),inset_0_-1px_1px_rgba(0,0,0,0.13)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+
+      {/* Reusable pill buttons layer rendering loop */}
+      <div className="flex items-center justify-center relative z-10">
+        {ctaButtons.map((button, index) => (
+          <PillButton 
+            key={index}
+            onClick={() => window.open(button.href, '_self')}
           >
-            <span className="relative w-fit font-['SF_Pro-Regular',Helvetica] font-normal text-colors-grays-white text-2xl tracking-[-0.23px] leading-5 whitespace-nowrap">
-              Let&apos;s collaborate
-            </span>
-          </a>
+            {button.label} 
+          </PillButton>
         ))}
       </div>
     </section>

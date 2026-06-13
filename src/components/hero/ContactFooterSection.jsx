@@ -46,15 +46,15 @@ const socialLinks = [
 export const ContactFooterSection = () => {
   return (
     <footer
-      className="relative flex w-full max-w-full flex-col items-center gap-[60px] bg-transparent text-left font-sans"
+      className="relative flex w-full max-w-full flex-col items-center gap-15 bg-transparent text-left font-sans"
       aria-label="Contact footer"
     >
-      <div className="grid h-fit w-full max-w-[1440px] grid-cols-2 px-[94px] py-0 gap-y-12">
+      <div className="grid h-fit w-full max-w-360 grid-cols-2 px-23.5 py-0 gap-y-12">
         
         {/* Left Column - Core Address Info */}
         <section className="relative col-[1/2] row-[1/2]  flex h-fit w-[627px] flex-col items-start gap-[15px] px-0 py-[9px] [align-self:start]">
-          <h2 className="relative -mt-px flex h-[61px] items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
-          leading-[normal] tracking-[0] text-white">
+          <h2 className="relative -mt-px flex h-15.25 items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
+          leading-[normal] tracking-normal text-white">
             Contact Info
           </h2>
           <address className="relative inline-flex flex-[0_0_auto] flex-col items-start not-italic gap-4">
