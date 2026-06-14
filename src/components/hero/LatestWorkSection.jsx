@@ -4,36 +4,45 @@ import mis_login from "../../assets/mis_login.png";
 import mis_me from "../../assets/mis_me.png";
 
 const workItems = [
-  { id: 1, image: mis_home },
-  { id: 2, image: mis_login },
-  { id: 3, image: mis_me },
+  { id: 1, label: "Home Screen", image: mis_home },
+  { id: 2, label: "Login Portal", image: mis_login },
+  { id: 3, label: "Profile View", image: mis_me },
 ];
 
 export const LatestWorkSection = () => {
-  const lwsButtons = [{ label: "Try the app", href: "#contact"}, 
-                      { label: "About app", href: "https://play.google.com/store/apps/details?id=com.colegiodealicia.mis" },
-                      { label: "More stuff", href: "#contact" }];
+  const lwsButtons = [
+    { label: "Try the app", href: "#contact"}, 
+    { label: "About app", href: "https://play.google.com/store/apps/details?id=com.colegiodealicia.mis" },
+    { label: "More stuff", href: "#contact" }
+  ];
 
   return (
     <section
       aria-labelledby="latest-work-title"
-      className="flex flex-col w-full h-268.25 items-center gap-15 relative max-w-full"
+      className="flex flex-col w-full min-h-fit py-24 items-center gap-16 relative max-w-full"
     >
-      <header className="flex flex-col h-71.5 items-center justify-center px-23.5 py-0 relative self-stretch w-full">
-        <h2
+      <header className="flex flex-col items-center justify-center px-6 py-0 relative self-stretch w-full text-center gap-4">
+        {/* Responsive Typography Scales: text-4xl on mobile, text-5xl on tablet, 89px on desktop */}
+        <h1
           id="latest-work-title"
-          className="relative flex items-center justify-center w-244 max-w-full h-34 font-['SF_Compact-Bold',Helvetica] font-bold text-white text-[89px] text-center tracking-normal leading-[normal]"
+          className="relative flex items-center justify-center max-w-5xl font-['SF_Compact-Bold',Helvetica] font-bold text-white text-4xl sm:text-5xl md:text-[89px] tracking-tight leading-tight"
         >
           My latest stuff
-        </h2>
-        <p className="relative w-238 max-w-full h-23.75 font-['SF_Pro-Regular',Helvetica] font-normal text-white text-[40px] text-center tracking-normal leading-[normal]">
-          Colegio De Alicia Management Information System (MIS) mobile app for
-          the parents end.
+        </h1>
+        <p className="relative max-w-3xl font-['SF_Pro-Regular',Helvetica] font-normal text-white/80 text-lg sm:text-xl md:text-[32px] leading-relaxed mx-auto">
+          Colegio De Alicia Management Information System (MIS) mobile app for the parents end.
         </p>
       </header>
-      {/* Grid container wrapper mapped for the mobile mockups */}
+
+      {/* 🛠️ HORIZONTAL SCROLL CAROUSEL WRAPPER:
+        - flex-nowrap: Prevents the cards from wrapping into a vertical column.
+        - overflow-x-auto: Enables horizontal swiping on mobile.
+        - md:overflow-x-visible md:justify-center: Centers the row normally on desktops.
+        - snap-x snap-mandatory: Smooth, app-like native snapping for mobile swiping gestures.
+        - no-scrollbar: Optional class if you want to hide the ugly desktop scrollbar tracks.
+      */}
       <div
-        className="flex flex-wrap items-center justify-center gap-8 relative self-stretch w-full px-6"
+        className="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-6 sm:gap-8 relative w-full overflow-x-auto md:overflow-x-visible snap-x snap-mandatory px-6 py-4 scroll-smooth no-scrollbar"
         role="list"
         aria-label="Latest work previews"
       >
@@ -41,24 +50,28 @@ export const LatestWorkSection = () => {
           <div
             key={item.id}
             role="listitem"
-            /* 3. Render container as a premium card structure */
-            className="relative w-81.5 h-171 bg-neutral-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl
-             group transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
+            /* 🛠️ FLEX SHRINK & SNAP FIX:
+              - flex-shrink-0: ABSOLUTELY CRITICAL. Keeps the mockups from squishing down to 0 width.
+              - w-[280px] sm:w-81.5: Makes the cards slightly narrower on tiny phones so users can see the next card peeking out.
+              - h-[560px] sm:h-175: Proportional fluid mobile height scaling.
+              - snap-center: Locks the card into the center of the viewport on smartphone swipes.
+            */
+            className="relative shrink-0 w-70 sm:w-81.5 h-150 sm:h-175 snap-center bg-neutral-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl group transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
           >
-            {/* 4. THE FIX: Displaying your actual image asset inside an HTML tag */}
             <img 
               src={item.image} 
-              alt={item.label}
+              alt={`Colegio De Alicia MIS Preview - ${item.label}`}
               className="w-full h-full object-cover object-top select-none transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         ))}
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-16 relative z-10 px-6">
-        {lwsButtons.map((button, index) => (
+
+      {/* Action Buttons Row */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 px-6 w-full max-w-md sm:max-w-none mx-auto">        {lwsButtons.map((button, index) => (
           <PillButton 
             key={index}
-            // For external app links, let's open them in a clean new tab container instead of wiping your site view
+            className="w-full sm:w-auto text-center"
             onClick={() => window.open(button.href, button.href.startsWith('http') ? '_blank' : '_self')}
           >
             {button.label} 

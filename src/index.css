@@ -58,6 +58,19 @@ textarea {
   outline: none;
 }
 
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* ==========================================================================
    3. CUSTOM UTILITIES (Using the new v4 native @utility compiler directive)
    ========================================================================== */

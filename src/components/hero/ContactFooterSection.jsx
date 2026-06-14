@@ -46,18 +46,17 @@ const socialLinks = [
 export const ContactFooterSection = () => {
   return (
     <footer
-      className="relative flex w-full max-w-full flex-col items-center gap-15 bg-transparent text-left font-sans"
+      className="relative flex w-full flex-col items-center bg-transparent text-left font-sans"
       aria-label="Contact footer"
     >
-      <div className="grid h-fit w-full max-w-360 grid-cols-2 px-23.5 py-0 gap-y-12">
+      <div className="w-full max-w-7xl px-6 md:px-12 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 h-fit">
         
         {/* Left Column - Core Address Info */}
-        <section className="relative col-[1/2] row-[1/2]  flex h-fit w-156.5 flex-col items-start gap-3.75 px-0 py-2.25 [align-self:start]">
-          <h2 className="relative -mt-px flex h-15.25 items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
-          leading-[normal] tracking-normal text-white">
-            Contact Info
-          </h2>
-          <address className="relative inline-flex flex-[0_0_auto] flex-col items-start not-italic gap-4">
+        <section className="relative w-full md:w-auto flex h-fit flex-col items-start gap-4 px-0 py-2.25 self-start">
+          <h2 className="relative flex items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-2xl sm:text-3xl lg:text-[35px] font-normal leading-snug tracking-normal text-white">
+          Contact Info
+        </h2>
+        <address className="relative w-full inline-flex flex-col items-start not-italic gap-4">
             {contactItems.map((item) => (
               <div
                 key={item.label}
@@ -90,15 +89,14 @@ export const ContactFooterSection = () => {
         
 
         {/* Left Column  - Real Connect Buttons */}
-        <section className="relative col-[2/3] row-[1/2]  flex h-fit w-156.5 flex-col items-start gap-3.75 px-0 py-2.25 [align-self:start]">
-          <h2 className="relative -mt-px flex h-15.25 items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-[35px] font-normal 
-          leading-[normal] tracking-normal text-white">
+        <section className="relative w-full md:w-auto flex h-fit flex-col items-start gap-4 px-0 py-2.25 self-start">
+          <h2 className="relative flex items-center self-stretch font-['SF_Pro-Regular',Helvetica] text-2xl sm:text-3xl lg:text-[35px] font-normal leading-snug tracking-normal text-white">
             Connect with me
           </h2>
-          
-          <div className="relative inline-flex flex-[0_0_auto] flex-col items-start gap-5 w-full">
-            {/* Interactive Liquid Glass Action Buttons */}
-            <div className="flex items-center gap-4 w-full">
+        
+        <div className="relative inline-flex flex-col items-start gap-5 w-full">
+          {/* Interactive Liquid Glass Action Buttons */}
+          <div className="flex flex-wrap items-center gap-4 w-full">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -124,13 +122,13 @@ export const ContactFooterSection = () => {
       </div>
 
       {/* Lower Decorative Border Line & Meta Credits */}
-      <div className="grid h-fit w-full max-w-360 grid-cols-2 border-t border-[#3b0aed]/40 px-23.5 py-6">
-        <div className="relative col-[1/2] row-[1/2] flex items-center [align-self:start]">
+      <div className="w-full max-w-7xl border-t border-white/10 px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4 h-fit">
+        <div className="relative flex items-center self-center md:self-start text-sm text-gray-400">
           <p className="font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-normal text-white/40">
             © 2026 Carl Sagario. All rights reserved.
           </p>
         </div>
-        <div className="relative col-[2/3] row-[1/2] flex items-center justify-end [align-self:start]">
+        <div className="relative w-full md:w-auto flex items-center justify-center md:justify-end self-center md:self-start">
           <p className="text-right font-['SF_Pro-Regular',Helvetica] text-base font-normal tracking-normal text-white/40 flex items-center gap-1.5">
             <Icon icon="logos:react" className="text-sm" /> Made with React &amp; Tailwind v4
           </p>
