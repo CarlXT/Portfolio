@@ -11,11 +11,6 @@ export default function Button({
     <button
         type={type}
         onClick={onClick}
-        /* 🛠️ THE RESPONSIVE FIX:
-            - Swapped w-72.25 for w-full md:w-auto: Lets the parent container force it full-width on mobile, but keep content size on desktop.
-            - Swapped h-21 for h-auto min-h-[52px] sm:min-h-[64px]: Dropped rigid height for text safety, using flexible min-height constraints instead.
-            - Fixed the padding class concatenation typos completely.
-        */
         className={`relative flex w-full md:w-auto h-auto min-h-13.5 sm:min-h-15 items-center justify-center gap-2 px-8 py-3 rounded-full overflow-hidden 
             transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none backdrop-brightness-100 backdrop-saturate-100 
             

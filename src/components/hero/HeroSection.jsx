@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import {Link} from "react-router-dom";
 
 const cards = [
   {
@@ -9,6 +10,7 @@ const cards = [
     icon: "ph:user-bold",
     // Custom glass glow tint for an organic liquid feel
     glowClass: "from-blue-500/10 via-transparent to-transparent",
+    path:"/me"
   },
   {
     title: "Stuff I Built",
@@ -16,6 +18,7 @@ const cards = [
     descriptionWidthClass: "w-[245px]",
     icon: "solar:code-2-bold",
     glowClass: "from-purple-500/10 via-transparent to-transparent",
+    path:"/stuffbuilt"
   },
   {
     title: "Stack",
@@ -23,6 +26,7 @@ const cards = [
     descriptionWidthClass: "w-[242px]",
     icon: "fluent:layer-20-filled",
     glowClass: "from-emerald-500/10 via-transparent to-transparent",
+    path:"/stack"
   },
   {
     title: "Say Hi",
@@ -30,6 +34,7 @@ const cards = [
     descriptionWidthClass: "w-[249px]",
     icon: "solar:letter-bold",
     glowClass: "from-amber-500/10 via-transparent to-transparent",
+    path:"/sayhi"
   },
 ];
 
@@ -56,9 +61,9 @@ export const HeroSection = () => {
         aria-label="Primary section links"
       >
         {cards.map((card) => (
-          <a
+          <Link
             key={card.title}
-            href="#"
+            to={card.path}
             aria-label={card.title}
             /* 🛠️ THE EXACT DESKTOP SNAP FIX:
               - w-full: Takes up 100% width on mobile views so it adapts neatly.
@@ -95,7 +100,7 @@ export const HeroSection = () => {
               </div>
 
             </div>
-          </a>
+          </Link>
         ))}
       </nav>
     </section>

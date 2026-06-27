@@ -68,7 +68,8 @@ export const LatestWorkSection = () => {
       </div>
 
       {/* Action Buttons Row */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 px-6 w-full max-w-md sm:max-w-none mx-auto">        {lwsButtons.map((button, index) => (
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 px-6 w-full max-w-md sm:max-w-none mx-auto">      
+          {lwsButtons.map((button, index) => (
           <PillButton 
             key={index}
             className="w-full sm:w-auto text-center"
