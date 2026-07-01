@@ -1,21 +1,38 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/portfolio.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self'; 
+      script-src 'self' 'unsafe-eval' 'unsafe-inline'; 
+      style-src 'self' 'unsafe-inline'; 
+      connect-src 'self' ws://localhost:* http://localhost:* https://api.iconify.design https://api.simplesvg.com https://api.unisvg.com;
+      img-src 'self' data: blob: https://api.iconify.design;
+      font-src 'self' data:;
+    ">
+    
+    <title>Carl Sagario - Portfolio</title>
+
     <script type="text/javascript">
-      // This script checks if a redirect is present and stores the path in sessionStorage
-      var segmentCount = 1; // Set to 1 if deploying to a GitHub project page subfolder
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=' +
-        l.pathname.split('/').slice(1 + segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      // Single Page Apps for GitHub Pages redirection script
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
     </script>
+    <script type="module" crossorigin src="/assets/index-BQnc7xv1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-vZKuHYcL.css">
   </head>
   <body>
+    <div id="root"></div>
   </body>
 </html>
